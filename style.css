@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffeef;
+}
+.scene{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    height: 400px;
+    background: #eaeef0;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.9), 10px 10px 25px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+.scene:hover{
+	animation-play-state: paused;
+}
+.sun
+{
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 40px #f3e304,
+    0 0 60px #f3e304,
+    0 0 80px #f3e304,
+    0 0 100px #f3e304;
+    border: 1px solid #fff;
+}
+.road{
+    position: absolute;
+    background-color: #333;
+    width: 100%;
+    height: 80px;
+    left: 0;
+    bottom: 0;
+    
+}
+.road::before{
+    position: absolute;
+    content: '';
+    background-color: seagreen;
+    width: 100%;
+    height: 15px;
+    z-index: 3;
+}
+.road::after{
+    position: absolute;
+    top:50%;    
+    content: '';
+    background: repeating-linear-gradient(90deg, 
+    transparent 0, transparent 50%,#fff 50%, #fff 100%);
+    transform: translateY(50%);
+    width: 100%;
+    height: 3px;
+    background-size: 20px;
+    animation: animRoad .1s linear infinite;
+}
+@keyframes animRoad{
+    0%{
+        background-position-x: 0px;
+    }
+
+    100%{
+        background-position-x: -20px;
+    }
+}
+.road:hover{
+	animation-play-state: paused;
+}
+.van
+{
+    position: absolute;
+    bottom: 35px;
+    z-index: 4;
+    left : 30px;
+    font-size: 5em;
+    -webkit-text-stroke: 2px #333;
+    color: #fff;
+    animation: animVan .2s linear infinite;
+}
+@keyframes animVan{
+    0%{
+        transform: translateY(0px);
+    }
+
+    100%{
+        transform: translateY(2px);
+    }
+}
+.cloud{
+    position: absolute;
+    top: calc(15px * var(--i));
+    left: calc(25px * var(--i));
+    z-index: 3;
+    font-size: 60px;
+    color: #fffeee;
+    -webkit-text-stroke: 2px #333;
+    animation: animCloud 3.5s linear infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes animCloud {
+    0%{
+        transform: translateX(550px);
+    }
+
+    100%{
+        transform: translateX(-550px);
+    }
+}
+
+.tree{
+    position: absolute;
+    bottom: 79px;
+    z-index: 2;
+    font-size: 65px;
+    color: green;
+    animation: animTree 5s linear infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes animTree {
+    0%{
+        transform: translateX(350px);
+    }
+
+    100%{
+        transform: translateX(-350px);
+    }
+}
+
+.mountain{
+    position: absolute;
+    bottom: 50px;
+    z-index: 0;
+    font-size: 150px;
+    color: rgb(102, 0, 0);
+    animation: animMountain 7s linear infinite;
+    animation-delay: calc(-3s * var(--i));
+}
+
+@keyframes animMountain {
+    0%{
+        transform: translateX(550px);
+    }
+
+    100%{
+        transform: translateX(-550px);
+    }
+}
